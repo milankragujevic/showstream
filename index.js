@@ -15,7 +15,7 @@ var parseTorrent = require('parse-torrent');
 
 var config = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'config.json')));
 var torrents = {};
-var tmpDir = path.join(os.tmpdir(), 'playforever');
+var tmpDir = path.join(os.tmpdir(), 'showstream');
 
 var runTorrent = function(url, req, res) {
 	var id = md5(url);
