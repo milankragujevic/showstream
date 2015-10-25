@@ -1,0 +1,5 @@
+{
+	"webui_port": 9999,
+	"peerflix_port": 9988,
+	"version": "0.1.0"
+}
