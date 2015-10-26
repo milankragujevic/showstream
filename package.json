@@ -14,7 +14,7 @@
     "min_width": 420,
     "min_height": 260,
     "resizable": false,
-    "show": true,
+    "show": false,
     "position": "center"
   },
   "dependencies": {
