@@ -1,3 +1,5 @@
+__dirname = process.execPath.substr(0,process.execPath.lastIndexOf('/')); // nodejs shim
+
 var express = require('express');
 var fs = require('fs');
 var path = require('path');
@@ -98,6 +100,17 @@ api.get('/stream', function(req, res) {
 		});
 	}
 });
+api.get('/torrent/:id', function(req, res) {
+	var id = req.params.id;
+	if(typeof torrents[id] == 'undefined') {
+		res.status(422).send({
+			status: 'error',
+			error: "Provided ID is not valid or doesn't exist. "
+		});
+		return;
+	}
+	res.send(torrents[id]);
+});
 api.get('/ping/:id', function(req, res) {
 	var id = req.params.id;
 	console.log("Received ping for %s", id);
@@ -113,9 +126,15 @@ api.get('/ping/:id', function(req, res) {
 		status: 'ok'
 	});
 });
+api.get('/kill', function(req, res) {
+	res.send({
+		status: 'ok'
+	});
+	process.exit(0);
+});
 
 var server = http.createServer(api);
-server.listen(config.webui_port);
+server.listen(config.webui_port, server.webui_host);
 server.on('listening', function() {
     console.log('Listening on %s:%s', server.address().address, server.address().port);
 }); 

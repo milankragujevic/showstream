@@ -1,5 +1,6 @@
 {
 	"webui_port": 9999,
 	"peerflix_port": 9988,
-	"version": "0.1.0"
+	"webui_host": "127.0.0.1",
+	"version": "0.1.1"
 }
