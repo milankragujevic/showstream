@@ -32,7 +32,7 @@ var checkForUpdates = new gui.MenuItem({
 	}
 });
 menu.append(stopMenuItem);
-menu.append(checkForUpdates);;
+menu.append(checkForUpdates);
 tray.menu = menu;
 tray.tooltip = 'ShowStream';
 win.hide();
