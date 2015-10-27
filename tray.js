@@ -31,8 +31,8 @@ var checkForUpdates = new gui.MenuItem({
 		document.body.appendChild(iframe);
 	}
 });
-menu.append(stopMenuItem);
 menu.append(checkForUpdates);
+menu.append(stopMenuItem);
 tray.menu = menu;
 tray.tooltip = 'ShowStream';
 win.hide();
